@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="ie6 ie"> <![endif]--><!--[if IE 7]>         <html class="ie7 ie"> <![endif]--><!--[if IE 8]>         <html class="ie8 ie"> <![endif]--><!--[if IE 9]>         <html class="ie9 ie"> <![endif]-->
+<html lang="en" itemscope itemtype="http://schema.org/TechArticle">
+<head>
+<title>Linux and UNIX cd command help and examples</title>
+<link href="http://cdn.computerhope.com/site.css" type="text/css" rel="stylesheet"/>
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="Information, examples, and additional help with the Unix and Linux cd command." name="description"/>
+<meta itemprop="name" content="Linux and UNIX cd command help and examples"/>
+<meta itemprop="description" content="Information, examples, and additional help with the Unix and Linux cd command."/>
+<meta property="og:description" content="Information, examples, and additional help with the Unix and Linux cd command."/>
+<meta property="og:title" content="Linux and UNIX cd command help and examples"/>
+<meta property="og:type" content="article"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux and UNIX cd command help and examples"/>
+<meta name="twitter:description" content="Information, examples, and additional help with the Unix and Linux cd command."/>
+<meta name="twitter:creator" content="@computerhope"/>
+<!-- HTML5 fix -->
+<!--[if lt IE 9]>
+ <script src="http://cdn.computerhope.com/html5shiv.js"></script>
+ <![endif]-->
+<meta property="og:image" content="http://cdn.computerhope.com/linux/cd.gif"/>
+<meta itemprop="image" content="http://cdn.computerhope.com/linux/cd.gif"/>
+<link rel="image_src" href="http://cdn.computerhope.com/linux/cd.gif"/>
+<link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="http://feeds.feedburner.com/LatestNewPagesOnComputerHope"/>
+<link rel="apple-touch-icon" href="http://cdn.computerhope.com/apple-touch-icon.png"/>
+<link rel="shortcut icon" href="http://cdn.computerhope.com/favicon.ico" type="image/x-icon"/>
+<meta name="robots" content="noodp"/>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-126444-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="skip"><a href="#main-content">Skip to Main Content</a></div>
+<div class="wrapper">
+  <header class="cf"> <a href="http://www.computerhope.com/"><img src="http://cdn.computerhope.com/computer-hope.jpg" width="412" height="82" alt="Computer Hope" class="logo"/></a>
+    <div itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <form action="http://www.computerhope.com/cgi-bin/search.cgi" method="post">
+        <input class="sbar" name="q" title="Search" type="text"/>
+        <button type="Submit">Search</button>
+      </form>
+      <ul id="nav">
+        <li><a href="http://www.computerhope.com/oh.htm" title="Questions and answers, troubleshooting, and help">Help</a></li>
+        <li><a href="http://www.computerhope.com/tips/" title="Computer tips and tricks">Tips</a></li>
+        <li><a href="http://www.computerhope.com/jargon.htm" title="Computer terms, jargon, and glossary">Dictionary</a></li>
+        <li><a href="http://www.computerhope.com/history/" title="Computer timeline, events, and biographies">History</a></li>
+        <li><a href="http://www.computerhope.com/forum/" title="Computer Hope forums and community">Forums</a></li>
+        <li><a href="http://www.computerhope.com/contact/" title="Contact Computer Hope or other computer companies">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="container ad"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3999293766533555" data-ad-slot="7994873325" data-ad-format="auto"></ins> 
+    <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+  </section>
+  <section class="container breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <p><span class="bctitle">You are here:</span> <a href="http://www.computerhope.com/oh.htm" itemprop="url"><span itemprop="title">Help</span></a> &gt; <a href="http://www.computerhope.com/unix.htm" itemprop="url"><span itemprop="title">Linux and Unix</span></a></p>
+  </section>
+  <section class="container content" id="main-content">
+    <article>
+      <h1>Linux and Unix cd command</h1>
+      <p class="tabb"> <a href="#about"><img src="http://cdn.computerhope.com/linux/cd.gif" alt="cd command" width="300" height="300" class="floatRight">About cd</a><br>
+        <a href="#syntax">cd syntax</a><br>
+        <a href="#examples">cd examples</a><br>
+        <a href="#related">Related commands</a><br>
+        <a href="#qandas">Related Q&amp;A</a><br>
+        <a href="../unix.htm">Linux and Unix main page</a></p>
+      <h2 id="about">About cd</h2>
+      <p class="tab intro">The <b>cd</b> command, which stands for "change directory", changes the <a href="../jargon/s/shell.htm">shell</a>'s <a href="../jargon/c/currentd.htm">current working directory</a>.</p>
+      <h2>Description</h2>
+      <p class="tab"> The <b>cd</b> command is one of the commands you will use the most at the <a href="../jargon/c/commandi.htm">command line</a> in linux. It allows you to change your <a href="../jargon/c/currentd.htm">working directory</a>. You use it to move around within the <a href="../jargon/h/hierfile.htm">hierarchy</a> of your <a href="../jargon/f/filesyst.htm">file system</a>.</p>
+      <h2>About Directories</h2>
+      <p class="tab">To help you organize your files, your <a href="../jargon/f/filesyst.htm">file system</a> contains special files called <a href="../jargon/d/director.htm">directories</a>. Think of them like folders in a file cabinet: they have names, just like files, but their function is to "contain" other files, and other directories. In this way, you can keep the files on your system separate and sorted according to their function or purpose.</p>
+      <p class="tab">All files and directories on your system stem from one main directory: the <a href="../jargon/r/root.htm">root directory</a>. There are no directories "above" the root directory; all other directories are "below" the root directory.</p>
+      <p class="tab">Any directory which is contained inside another directory is called a <a href="../jargon/s/subdirec.htm">subdirectory</a>. Subdirectories "branch" off the "root" of the directory "tree." Unlike a real tree, directory trees are upside-down: the root is at the top and the branches reach down. When you move into a subdirectory, you are moving "down" the tree; when you move into a directory's parent directory, you are moving "up" the tree.</p>
+      <p class="tab">All directories on your file system are subdirectories of the root directory.</p>
+      <p class="tab"><span class="tips">Note:</span> By default, when you open a <a href="../jargon/t/terminal.htm">terminal</a> and begin using the command line, you are placed in your <a href="../jargon/h/homedir.htm">home directory</a>.</p>
+      <h2>How Directories Are Represented</h2>
+      <p class="tab"> Directories are separated by a forward slash ("<b>/</b>"). For instance, the directory name "<b>documents/work/accounting</b>" means "the directory named <b>accounting</b>, which is in the directory named <b>work</b>, which is in the directory named <b>documents</b> which is in the current directory."</p>
+      <p class="tab">To change into this directory, and make it our working directory, we would use the command:</p>
+      <pre class="tab tcy">cd documents/work/accounting</pre>
+      <p class="tab"> If the first character of a directory name is a slash, that denotes that the directory path begins in the root directory. So, in contrast to the example above, the directory name "<b>/documents/work/accounting</b>" (note the beginning slash) means "the directory named <b>accounting</b>, which is in the directory named <b>work</b>, which is in the directory named <b>documents</b> which is in the root directory."</p>
+      <p class="tab">To change into this directory, making it our working directory, we would use the command:</p>
+      <pre class="tab tcy">cd /documents/work/accounting</pre>
+      <h2>Representing The Root Directory</h2>
+      <p class="tab"> The root directory itself is represented by a single slash ("<b>/</b>").</p>
+      <p class="tab">To change into the root directory, making it our working directory, we would use the command:</p>
+      <pre class="tab tcy">cd /</pre>
+      <h2>Representing The Working Directory</h2>
+      <p class="tab"> The current directory, regardless of which directory it is, is represented by a single dot ("<b>."</b>).</p>
+      <p class="tab">So, running this command:</p>
+      <pre class="tab tcy">
+cd .
+</pre>
+      <p class="tab">...would change us into the directory we're already in. In other words, it would do nothing, but it would do it successfully.</p>
+      <p class="tab">What's actually happening is the dot represents the "assumed" directory; it's a placeholder, and you can use the dot anywhere in a directory name. So, the command:</p>
+      <pre class="tab tcy">
+cd documents
+</pre>
+      <p class="tab"> ...is the same as the command:</p>
+      <pre class="tab tcy">
+cd ./documents
+</pre>
+      <p class="tab"> ...and also the same as:</p>
+      <pre class="tab tcy">
+cd documents/.
+</pre>
+      <p class="tab"> ...as well as:</p>
+      <pre class="tab tcy">
+cd ./documents/.
+</pre>
+      <p class="tab">In all of these examples, the dot represents "the directory assumed to be there". You can use it as a placeholder anywhere you want to tell the shell that a directory goes in that place, and to assume the appropriate value.</p>
+      <h2>Representing The Parent Directory</h2>
+      <p class="tab">The parent directory of the current directory &mdash; in other words, the directory one level up from the current directory, which contains the directory we're in now &mdash; is represented by two dots ("<b>..</b>").</p>
+      <p class="tab">So, If we were in the directory <b>/home/username/documents</b>, and we executed the command:</p>
+      <pre class="tab tcy">cd ..</pre>
+      <p class="tab">...we would be placed in the directory <b>/home/username</b>.</p>
+      <p class="tab">The double-dot ("<b>..</b>") directory notation can be used anywhere in a directory name to represent going up one level. For instance, if we have two directories, <b>/home/username/documents</b> and <b>/home/username/downloads</b>, and we are currently in <b>/home/username/documents</b>, we could type the following:</p>
+      <pre class="tab tcy">cd ../downloads</pre>
+      <p class="tab">...and we would be placed in <b>/home/username/downloads</b>.</p>
+      <p class="tab">Another "useless" command, but one that illustrates the way you can use the double-dot notation, is this one:</p>
+      <pre class="tab tcy">cd documents/..</pre>
+      <p class="tab">...which will place us in the directory one level above the subdirectory <b>documents</b> &mdash; in other words, the current directory. Note that this will only work if the subdirectory <b>documents</b> already exists.</p>
+      <p class="tab">Similarly, the command:</p>
+      <pre class="tab tcy">cd documents/../documents</pre>
+      <p class="tab"> ...is functionally the same as this command:</p>
+      <pre class="tab tcy">cd documents</pre>
+      <h2>Representing Your Home Directory</h2>
+      <p class="tab">Your home directory is the directory you're placed in, by default, when you open a new terminal session. It's the directory that holds all your settings, your mail, your default documents and downloads folder, and many other personal items. It has a special representation: a <a href="../jargon/t/tilde.htm">tilde</a> ("<b>~</b>").</p>
+      <p class="tab">So, if our username is <b>username</b>, and our home directory is <b>/home/username</b>, the command:</p>
+      <pre class="tab tcy">
+cd ~
+</pre>
+      <p class="tab"> ...is functionally the same as the command:</p>
+      <pre class="tab tcy">
+cd /home/username
+</pre>
+      <p class="tab">...and we can always access the subdirectories of our home directory by placing the tilde as the first component of the the directory name. For instance, if your documents folder is named <b>/home/username/documents</b>, you can always move into that directory using the command:</p>
+      <pre class="tab tcy">
+cd ~/documents
+</pre>
+      <h2>Using A Trailing Slash</h2>
+      <p class="tab">Using a slash at the end of a directory name is optional. Directories are simply files, so you don't need to put it there; but if you do put it there, the system knows for sure you're expecting that file to be a directory. For example, if there is a subdirectory off the current directory named <b>dirname</b>, the command:</p>
+      <pre class="tab tcy">
+cd dirname
+</pre>
+      <p class="tab"> ...is the same as the command:</p>
+      <pre class="tab tcy">
+cd dirname/
+</pre>
+      <p class="tab">The second form of the command explicitly states that <b>dirname</b> is a directory, but both commands are equivalent.</p>
+      <h2 id="syntax">cd syntax</h2>
+      <pre class="tcy tab">cd [-L|-P] <i>directory</i></pre>
+      <h2>Options</h2>
+      <table class="mtable3 tab">
+        <tr class="tcw">
+          <td><p><b>-L</b></p></td>
+          <td><p>Force <a href="../jargon/s/symblink.htm">symbolic links</a> to be followed. In other words, if you tell <b>cd</b> to move into a "directory" which is actually a symbolic link to a directory, it moves into the directory the symbolic link points to.</p>
+            <p>This is the default behavior of <b>cd</b>; normally, it will always act as if <b>-L</b> has been specified.</p></td>
+        </tr>
+        <tr class="tcw">
+          <td><p><b>-P</b></p></td>
+          <td><p>Use the physical directory structure without following symbolic links. In other words, only change into the specified directory if it actually exists as named; symbolic links will not be followed. This is the opposite of the <b>-L</b> option, and if they are both specified, this option will be ignored.</p></td>
+        </tr>
+        <tr class="tcw">
+          <td><p><b>-e</b></p></td>
+          <td><p>If the <b>-P</b> option is specified, and the current working directory cannot be determined, this option tells <b>cd</b> to exit with an error. If <b>-P</b> is not specified along with this option, this option has no function.</p></td>
+        </tr>
+      </table>
+      <h2 id="examples">cd examples</h2>
+      <pre class="tcy tab">cd hope</pre>
+      <p class="tab">The above example would change the working directory to the <b>hope</b> subdirectory if it exists.</p>
+      <pre class="tcy tab">cd ../computerhope</pre>
+      <p class="tab">The above example would traverse up one level to the parent directory and then down into the directory <b>computerhope</b>.</p>
+      <pre class="tcy tab">cd ../../</pre>
+      <p class="tab">Traverse two directories up the directory tree. In other words, move into the directory which contains the directory which contains the current working directory.</p>
+      <h2 id="related">Related commands</h2>
+      <p class="tab"> <a href="upwd.htm"><b>pwd</b></a> &mdash; Print the name of the working directory.<br>
+        <a href="http://www.computerhope.com/unix/uln.htm"><b>ln</b></a> &mdash; Create a link, or a symbolic link, to a file or directory.<br>
+        <a href="http://www.computerhope.com/unix/umkdir.htm"><b>mkdir</b></a> &mdash; Create a directory.<br>
+        <a href="http://www.computerhope.com/unix/urmdir.htm"><b>rmdir</b></a> &mdash; Remove a directory.</p>
+      <h2 id="qandas">Related Q&amp;A</h2>
+      <ul>
+        <li><a href="../issues/ch000795.htm">How do I change directories?</a></li>
+        <li><a href="../issues/ch001310.htm">Common <b>cd</b> commands explained, including <b>cd ..</b> and <b>cd /</b></a></li>
+      </ul>
+    </article>
+    <section class="bottomad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3999293766533555" data-ad-slot="6514780129" data-ad-format="auto"></ins> 
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <div class="related"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3999293766533555" data-ad-slot="9849691723" data-ad-format="autorelaxed"></ins> 
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </section>
+    <div id="meta_wrap" class="cf">
+      <ul class="options cf">
+        <li class="useful-page"> <span class="nolink">Was this page useful?</span> <a href="http://www.computerhope.com/cgi-bin/feedback.cgi?yes" rel="nofollow" class="first-child">Yes</a><a href="http://www.computerhope.com/cgi-bin/feedback.cgi?no" rel="nofollow">No</a> </li>
+        <li>
+          <ul>
+            <li class="feedback"><a href="http://www.computerhope.com/feedback/" rel="nofollow" title="Give us your feedback about this page">Feedback</a></li>
+            <li class="email"><a href="http://www.computerhope.com/email/" rel="nofollow" title="E-mail a friend about this page">E-mail</a></li>
+            <li class="share"><a href="http://www.computerhope.com/share/" rel="nofollow" title="Share this page with friends and social networks">Share</a></li>
+            <li class="first-child print"><a href="#" onclick="window.print();return false;" rel="nofollow" title="Print a copy of this page">Print</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <form action="http://www.computerhope.com/cgi-bin/search.cgi" method="post" class="cf">
+      <input class="sbar" name="q" title="Search" type="text"/>
+      <button type="Submit">Search</button>
+    </form>
+    <ul class="cf">
+      <li class="recent-pages">
+        <ol>
+          <li class="widget-title">
+            <h4>Recently added pages</h4>
+          </li>
+          <li id="ra1"></li>
+          <li id="ra2"></li>
+          <li id="ra3"></li>
+          <li id="ra4"></li>
+          <li id="ra5"></li>
+          <li><a href="http://www.computerhope.com/whatnew.htm">View all recent updates</a></li>
+        </ol>
+      </li>
+      <li class="useful-links">
+        <ol>
+          <li class="widget-title">
+            <h4>Useful links</h4>
+          </li>
+          <li><a href="http://www.computerhope.com/more.htm">About Computer Hope</a></li>
+          <li><a href="http://www.computerhope.com/sindex.htm">Site Map</a></li>
+          <li><a href="http://www.computerhope.com/forum/">Forum</a></li>
+          <li><a href="http://www.computerhope.com/contact/">Contact Us</a></li>
+          <li><a href="http://www.computerhope.com/issues/ch000586.htm">How to Help</a></li>
+          <li><a href="http://www.computerhope.com/chtop10.htm">Top 10 pages</a></li>
+        </ol>
+      </li>
+      <li class="social-networks">
+        <ol>
+          <li class="widget-title first-child">
+            <h4>Follow us</h4>
+          </li>
+          <li><a href="http://www.facebook.com/computerhope/" class="facebook">Facebook</a></li>
+          <li><a href="https://twitter.com/computerhope/" class="twitter">Twitter</a></li>
+          <li><a href="https://plus.google.com/+Computerhopehelp/" rel="publisher" class="google">Google+</a></li>
+          <li><a href="http://www.pinterest.com/computerhope/" class="pinterest">Pinterest</a></li>
+          <li><a href="http://www.youtube.com/user/Computerhope" class="youtube">YouTube</a></li>
+          <li><a href="http://www.computerhope.com/rss.htm" class="rss">RSS</a></li>
+        </ol>
+      </li>
+    </ul>
+    <div class="copyright"> <span>&copy; 2016 Computer Hope</span> <a href="http://www.computerhope.com/legal.htm">Legal Disclaimer</a> - <a href="http://www.computerhope.com/legal.htm#2">Privacy Statement</a> </div>
+  </footer>
+</div>
+<script async src="http://www.computerhope.com/recent.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="http://cdn.computerhope.com/site.js"></script> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=computerhope" async></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="ie6 ie"> <![endif]--><!--[if IE 7]>         <html class="ie7 ie"> <![endif]--><!--[if IE 8]>         <html class="ie8 ie"> <![endif]--><!--[if IE 9]>         <html class="ie9 ie"> <![endif]-->
+<html lang="en" itemscope itemtype="http://schema.org/TechArticle">
+<head>
+<title>Linux and UNIX cp command help and examples</title>
+<link href="http://cdn.computerhope.com/site.css" type="text/css" rel="stylesheet"/>
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="Information and examples on the Unix and linux cp command." name="description"/>
+<meta itemprop="name" content="Linux and UNIX cp command help and examples"/>
+<meta itemprop="description" content="Information and examples on the Unix and linux cp command."/>
+<meta property="og:description" content="Information and examples on the Unix and linux cp command."/>
+<meta property="og:title" content="Linux and UNIX cp command help and examples"/>
+<meta property="og:type" content="article"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux and UNIX cp command help and examples"/>
+<meta name="twitter:description" content="Information and examples on the Unix and linux cp command."/>
+<meta name="twitter:creator" content="@computerhope"/>
+<!-- HTML5 fix -->
+<!--[if lt IE 9]>
+ <script src="http://cdn.computerhope.com/html5shiv.js"></script>
+ <![endif]-->
+<meta property="og:image" content="http://cdn.computerhope.com/linux/cp.gif"/>
+<meta itemprop="image" content="http://cdn.computerhope.com/linux/cp.gif"/>
+<link rel="image_src" href="http://cdn.computerhope.com/linux/cp.gif"/>
+<link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="http://feeds.feedburner.com/LatestNewPagesOnComputerHope"/>
+<link rel="apple-touch-icon" href="http://cdn.computerhope.com/apple-touch-icon.png"/>
+<link rel="shortcut icon" href="http://cdn.computerhope.com/favicon.ico" type="image/x-icon"/>
+<meta name="robots" content="noodp"/>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-126444-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="skip"><a href="#main-content">Skip to Main Content</a></div>
+<div class="wrapper">
+  <header class="cf"> <a href="http://www.computerhope.com/"><img src="http://cdn.computerhope.com/computer-hope.jpg" width="412" height="82" alt="Computer Hope" class="logo"/></a>
+    <div itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <form action="http://www.computerhope.com/cgi-bin/search.cgi" method="post">
+        <input class="sbar" name="q" title="Search" type="text"/>
+        <button type="Submit">Search</button>
+      </form>
+      <ul id="nav">
+        <li><a href="http://www.computerhope.com/oh.htm" title="Questions and answers, troubleshooting, and help">Help</a></li>
+        <li><a href="http://www.computerhope.com/tips/" title="Computer tips and tricks">Tips</a></li>
+        <li><a href="http://www.computerhope.com/jargon.htm" title="Computer terms, jargon, and glossary">Dictionary</a></li>
+        <li><a href="http://www.computerhope.com/history/" title="Computer timeline, events, and biographies">History</a></li>
+        <li><a href="http://www.computerhope.com/forum/" title="Computer Hope forums and community">Forums</a></li>
+        <li><a href="http://www.computerhope.com/contact/" title="Contact Computer Hope or other computer companies">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="container ad"> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3999293766533555" data-ad-slot="7994873325" data-ad-format="auto"></ins> 
+    <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> 
+  </section>
+  <section class="container breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <p><span class="bctitle">You are here:</span> <a href="http://www.computerhope.com/oh.htm" itemprop="url"><span itemprop="title">Help</span></a> &gt; <a href="http://www.computerhope.com/unix.htm" itemprop="url"><span itemprop="title">Linux and Unix</span></a></p>
+  </section>
+  <section class="container content" id="main-content">
+    <article>
+      <h1>Linux and Unix cp command</h1>
+      <p class="tabb"> <a href="#description"><img src="http://cdn.computerhope.com/linux/cp.gif" alt="cp command" width="300" height="300" class="floatRight">Description</a><br>
+        <a href="#syntax">cp syntax</a><br>
+        <a href="#quick-examples">cp Quick Examples</a><br>
+        <a href="#general-overview">General Overview</a><br>
+        <a href="#options">Options</a><br>
+        <a href="#examples">cp Examples</a><br>
+        <a href="#related">Related commands</a><br>
+        <a href="../unix.htm">Linux and Unix main page</a></p>
+      <h2 id="description">Description</h2>
+      <p class="tab intro">The <b>cp</b> command is used to make copies of files and directories.</p>
+      <h2 id="syntax">cp syntax</h2>
+      <pre class="tcy tab">cp [<i>OPTION</i>]... [-T] <i>SOURCE</i> <i>DEST</i></pre>
+      <pre class="tcy tab">cp [<i>OPTION</i>]... <i>SOURCE</i>... <i>DIRECTORY</i></pre>
+      <pre class="tcy tab">cp [<i>OPTION</i>]... -t <i>DIRECTORY</i> <i>SOURCE</i>...</pre>
+      <h2 id="quick-examples">cp quick examples</h2>
+      <p class="nb">Make a copy of a file into the same directory:</p>
+      <pre class="tab tcy">cp origfile newfile</pre>
+      <p class="tab">Creates a copy of the file in the <a href="http://www.computerhope.com/jargon/c/currentd.htm">working directory</a> named <b>origfile</b>. The copy will be named <b>newfile</b>, and will be located in the working directory.</p>
+      <p class="tab"><span class="warn">CAREFUL!</span> If the destination file <b>newfile</b> already exists, it will be <a href="../jargon/o/overwrit.htm">overwritten</a> without a <a href="../jargon/c/confirma.htm">confirmation</a> prompt. This is the default behavior for all <b>cp</b> operations.</p>
+      <p class="tab">If you want to be prompted before overwriting a file, use the <b>-i</b> (interactive) <a href="#options">option</a>. For example:</p>
+      <pre class="tab tcy">cp -i oldfile newfile</pre>
+      <p class="tab">If <b>newfile</b> already exists, you will be prompted:</p>
+      <pre class="tab">cp: overwrite ‘newfile’?</pre>
+      <p class="tab">If you type <b>y</b> (or <b>yes</b>, <b>Y</b>, <b>YES</b>, or any other combination of upper and lowercase of these), then <b>newfile</b> will be overwritten with a copy of <b>origfile</b>. Typing anything else will abort the operation.</p>
+      <p class="nb">Copy a file into another directory:</p>
+      <pre class="tab tcy">cp origfile /directory/subdirectory</pre>
+      <p class="tab">Creates a copy of the file in the working directory named <b>origfile</b>. The copy will be located in the directory <b>/directory/subdirectory</b>, and will be named <b>origfile</b>.</p>
+      <pre class="tab tcy">cp origfile /directory/subdirectory/.</pre>
+      <p class="tab">Same as the above command. The slash-dot ("<b>/.</b>") is implied in the above form of the command. (The dot is a special file in every Linux directory which means "this directory.")</p>
+      <p class="nb">Copy a file into another directory, and give it a new name:</p>
+      <pre class="tab tcy">cp origfile /directory/subdirectory/newfile</pre>
+      <p class="tab">Creates a copy of the file in the working directory named <b>origfile</b>. The copy will be named <b>newfile</b>, and will be located in the directory <b style="white-space:nowrap">/directory/subdirectory</b>.</p>
+      <p class="nb">Copy multiple files into another directory, using a wildcard:</p>
+      <pre class="tab tcy">cp file* /directory/subdirectory</pre>
+      <p class="tab">Copy every file in the working directory whose name begins with <b>file</b> into the directory <b style="white-space:nowrap">/directory/subdirectory</b>. The asterisk ("<b>*</b>") is a <a href="../jargon/w/wildcard.htm">wildcard</a> &mdash; a special <a href="../jargon/c/charact.htm">character</a> which expands to match other characters. Specifically, the asterisk wildcard matches zero or more non-<a href="../jargon/w/whitspac.htm">whitespace</a> characters. For instance, this command will copy any files named <b>file</b>, <b>file001</b>, <b>file.txt</b>, <b>fileone.jpg</b>, <b>file-archive.zip</b>, etc.</p>
+      <pre class="tab tcy">cp file*.jpg /directory/subdirectory</pre>
+      <p class="tab">Copy every file in the working directory whose name begins with <b>file</b>, and ends with the file extension <b>.jpg</b>. For instance, it would make copies of any files named <b>file</b>, <b>file001.jpg</b>, <b>file002.jpg</b>, or <b>file-new.jpg</b>, etc. The copies will be placed into the directory <b style="white-space:nowrap">/directory/subdirectory</b>.</p>
+      <p class="nb">Copy an entire directory structure into another location:</p>
+      <pre class="tab tcy">cp -R /one/two /three/four</pre>
+      <p class="tab">Copy the directory <b>two</b> (located in the directory <b>/one</b>), and everything <b>two</b> contains, into the destination directory <b>/three/four</b>. The result will be called <b>/three/four/two</b>. The directory <b>/three</b> must already exist for the command to succeed. If the directory <b>four</b> does not already exist in the directory <b>/three</b>, it will be created.</p>
+      <h2 id="general-overview">General Overview</h2>
+      <p class="tab">Let's say you have a file named <b>picture.jpg</b> in your <a href="../jargon/c/currentd.htm">working directory</a>, and you want to make a copy of it called <b>picture-02.jpg</b>. You would run the command:</p>
+      <pre class="tab tcy">cp picture.jpg picture-02.jpg</pre>
+      <p class="tab">...and the file will be copied. Here, <b>picture.jpg</b> is the source of the copy operation, and <b>picture-02.jpg</b> is the destination. Both files now exist in your working directory.</p>
+      <p class="tab">The source and destination files may also reside in different directories. For instance,</p>
+      <pre class="tab tcy">cp /home/chuck/pictures/picture.jpg /home/chuck/backup/picture.jpg</pre>
+      <p class="tab">...will make a copy of the file <b>/home/chuck/pictures/picture.jpg</b> in the directory <b>/home/chuck/backup</b>. The destination file will also be named <b>picture.jpg</b>.</p>
+      <p class="tab">If you are the user <b>chuck</b>, you can abbreviate your <a href="../jargon/h/homedir.htm">home directory</a> ("<b>/home/chuck</b>") using a tilde ("<b>~</b>"). For instance,</p>
+      <pre class="tab tcy">cp ~/pictures/picture.jpg ~/backup/picture.jpg</pre>
+      <p class="tab">...functions the same as the above command when it is run by <b>chuck</b>.</p>
+      <p class="nb">Copying Multiple Files To A Directory</p>
+      <p class="tab"> Or, perhaps you want to copy <i>multiple</i> files into another directory. To accomplish this, you can specify multiple files as the source, and a directory name as the destination. Let's say you are the user <b>sally</b>, and you have a bunch of files in the directory <b>/home/sally/pictures/</b> named <b>picture-01.jpg</b>, <b>picture-02.jpg</b>... and you want to copy them into the directory <b>/home/sally/picture-backup/</b>. This command will do the trick:</p>
+      <pre class="tab tcy">cp ~/pictures/picture-*.jpg ~/picture-backup</pre>
+      <p class="tab">Here, we use a <a href="../jargon/w/wildcard.htm">wildcard</a> (the asterisk, "<b>*</b>") to indicate that the source files are all the files in the directory <b>/home/sally/pictures</b> whose name starts with "<b>picture-</b>" and has the extension "<b>.jpg</b>". They will be copied into the directory <b>/home/sally/picture-backup</b>, assuming that directory already exists. If it doesn't exist, <b>cp</b> will give you an error message, and no files will be copied.</p>
+      <p class="tab">You can also specify multiple source files one after the other, and <b>cp</b> will expect that the final <a href="../jargon/a/argument.htm">argument</a> is a directory name, and copy them all there. For instance,</p>
+      <pre class="tab tcy">cp ~/pictures/picture-01.jpg ~/pictures/picture-02.jpg ~/picture-backup</pre>
+      <p class="tab">...will copy only those two files, <b>/home/sally/picture-01.jpg</b> and <b>/home/sally/picture-02.jpg</b>, into the directory <b>/home/sally/picture-backup</b>.</p>
+      <p class="nb">Copying Files Recursively</p>
+      <p class="tab">You can use <b>cp</b> to copy entire directory structures from one place to another using the <b>-R</b> option to perform a <a href="../jargon/r/recursive.htm">recursive</a> copy. Let's say you are the user <b>steve</b> and you have a directory, <b>/home/steve/files</b>, which contains many files and subdirectories. You want to copy all those files, and all the subdirectories (and the files and subdirectories they contain), to a new location, <b>/home/steve/files-backup</b>. You can copy all of them using the command:</p>
+      <pre class="tab tcy">cp -R ~/files ~/files-backup</pre>
+      <p class="tab">...and the entire directory structure will be copied to the directory <b>/home/steve/files-backup</b>. When performing a recursive copy:</p>
+      <ul>
+        <li>if the directory <b>files-backup</b> already exists, the directory <b>files</b> will be placed inside;</li>
+        <li>if <b>files-backup</b> does <i>not</i> already exist, it <i>will</i> be created and the <i>contents</i> of the <b>files</b> directory will be placed inside it.</li>
+      </ul>
+      <p class="nb">Creating Symbolic Links Instead Of Copying Data</p>
+      <p class="tab">Another useful trick is to use <b>cp</b> to create <a href="../jargon/s/symblink.htm">symbolic links</a> to your source files. You may already be familiar with using the <a href="http://www.computerhope.com/unix/uln.htm"><b>ln</b></a> command to create symlinks; <b>cp</b> is a great way to create multiple symlinks all at once.</p>
+      <p class="tab"><b>cp</b> will create symbolic links if you specify the <b>-s</b> option. So, for instance,</p>
+      <pre class="tab tcy">cp -s file.txt file2.txt</pre>
+      <p class="tab">...will create a symbolic link, <b>file2.txt</b>, which points to <b>file.txt</b>.</p>
+      <p class="tab">You can also create symbolic links from multiple source files, specifying a directory as the destination.</p>
+      <p class="dtab"><span class="tips">Note:</span> To create symbolic links in another directory, <b>cp</b> needs you to specify the full pathname, including the full directory name, in your source filename(s). Relative paths will not work.</p>
+      <p class="tab">Let's say you are user <b>melissa</b> and you have a set of files, <b>file01.txt</b>, <b>file02.txt</b>... in the directory <b>/home/melissa/myfiles</b>. You want to create symbolic links to these files in the existing directory <b>/home/melissa/myfiles2</b>. This command will do the trick:</p>
+      <pre class="tab tcy">cp -s ~/myfiles/file*.txt ~/myfiles2</pre>
+      <p class="tab">The directory <b>myfiles2</b> will now contain symbolic links to the <b>file*.txt</b> in the directory <b>/home/melissa/myfiles</b>. The <b>myfiles2</b> directory must already exist for the operation to succeed; if it doesn't exist, <b>cp</b> will give you an error message and nothing will be copied.</p>
+      <p class="tab">This will work with a recursive copy, as well. So the command:</p>
+      <pre class="tab tcy">cp -R -s ~/myfiles ~/myfiles2</pre>
+      <p class="tab">...will re-create the directory structure of <b>/home/melissa/myfiles</b>, including any subdirectories and their contents; any files will be created as symlinks to the originals, but the directories will not be symbolic links, just regular directories. If <b>myfiles2</b> already exists, <b>cp</b> will create a directory inside it called <b>myfiles</b> which contains the directory structure and symlinks; if <b>myfiles2</b> does not already exist, it will be created, and contain the subdirectories and symlinks to the files that <b>myfiles</b> contains.</p>
+      <p class="tab">There are many other options you can provide to <b>cp</b> which will affect its behavior. These are listed, along with the precise command syntax, in the following sections.</p>
+      <h2 id="Options">Options</h2>
+      <p class="tab">In accordance with the <a href="#syntax">command syntax</a> above, <b>cp</b> copies the source file <i>SOURCE</i> to the destination file <i>DEST</i>, or multiple <i>SOURCE</i> file(s) to destination directory <i>DIRECTORY</i>.</p>
+      <p class="tab">If specified, the following <i>OPTION</i>s modify the behavior of the operation:</p>
+      <table class="mtable3 tab">
+        <tr class="tcw">
+          <td><b>-a</b>, <b>--archive</b></td>
+          <td>Same as <b>-dR --preserve=ALL</b>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--attributes-only</b></td>
+          <td>Don't copy the file data, just create a file with the same <a href="../jargon/f/fileattr.htm">attributes</a>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--backup</b>[<b>=</b><i>CONTROL</i>]</td>
+          <td>Make a backup of each existing destination file. <i>CONTROL</i> specifies the version control method to use; see below for more details.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-b</b></td>
+          <td>Like <b>--backup</b>, but does not accept a <i>CONTROL</i> argument; the default control method is always used.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--copy-contents</b></td>
+          <td>When operating <a href="../jargon/r/recursive.htm">recursively</a>, copy contents of special files.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-d</b></td>
+          <td>Same as <b>--no-dereference --preserve=links</b>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-f</b>, <b>--force</b></td>
+          <td>If an existing destination file cannot be opened, remove it and try again. This option has no effect if the <b>-n</b> option is used.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-i</b>, <b>--interactive</b></td>
+          <td>Prompt before <a href="../jargon/o/overwrit.htm">overwrite</a> (overrides a previous <b>-n</b> option).</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-H</b></td>
+          <td>Follow <a href="../jargon/c/commandi.htm">command-line</a> <a href="../jargon/s/symblink.htm">symbolic links</a> in <i>SOURCE</i>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-l</b>, <b>--link</b></td>
+          <td>Create <a href="../jargon/h/hardlink.htm">hard links</a> to files instead of copying them.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-L</b>, <b>--dereference</b></td>
+          <td>Always follow symbolic links in <i>SOURCE</i>. In other words, if <i>SOURCE</i> is a symlink, copy the file linked to rather than the symlink itself.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-n</b>, <b>--no-clobber</b></td>
+          <td>Do not overwrite an existing file (overrides a previous <b>-i</b> option).</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-P</b>, <b>--no-dereference</b></td>
+          <td>Never follow symbolic links in <i>SOURCE</i>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-p</b></td>
+          <td>Same as <b>--preserve=mode,ownership,timestamps</b>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--preserve=</b>[<i>ATTR_LIST</i>]</td>
+          <td>Preserve the specified attributes (default: <b>mode,ownership,timestamps</b>), if possible additional attributes: <b>context</b>, <b>links</b>, <b>xattr</b>, <b>all</b>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--no-preserve=</b><i>ATTR_LIST</i></td>
+          <td>Don't preserve the specified attributes.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--parents</b></td>
+          <td>Use full source file name under <i>DIRECTORY</i>.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-R</b>, <b>-r</b>, <b>--recursive</b></td>
+          <td>Copy directories recursively.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--reflink=</b>[<i>WHEN</i>]</td>
+          <td>Control clone/CoW copies.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--remove-destination</b></td>
+          <td>Remove each existing destination file <i>before</i> attempting to open it (contrast with the <b>--force</b> option).</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--sparse=</b><i>WHEN</i></td>
+          <td>Control creation of sparse files.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--strip-trailing-slashes</b></td>
+          <td>Remove any trailing slashes from each <i>SOURCE</i> argument.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-s</b>, <b>--symbolic-link</b></td>
+          <td>Make symbolic links instead of copying.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-S</b>, <b>--suffix=</b><i>SUFFIX</i></td>
+          <td>Override the usual backup suffix.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-t</b>, <b>--target-directory=</b><i>DIRECTORY</i></td>
+          <td>Copy all <i>SOURCE</i> arguments into <i>DIRECTORY</i></td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-T</b>, <b>--no-target-directory</b></td>
+          <td>Treat DEST as a normal file</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-u</b>, <b>--update</b></td>
+          <td>Copy only when the <i>SOURCE</i> file is newer than the destination file or when the destination file is missing.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-v</b>, <b>--verbose</b></td>
+          <td><a href="../jargon/v/verbose.htm">Verbose</a> mode; explain what is being done.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>-x</b>, <b>--one-file-system</b></td>
+          <td>Stay on this file system.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--help</b></td>
+          <td>Display a help message and exit.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>--version</b></td>
+          <td>Output version information and exit.</td>
+        </tr>
+      </table>
+      <p class="tab"> By default, sparse <i>SOURCE</i> files are detected by a crude <a href="../jargon/h/heuristi.htm">heuristic</a> and the corresponding DEST file is made sparse as well. That is the behavior selected by <b>--sparse=auto</b>. Specify <b>--sparse=always</b> to create a sparse DEST file whenever the <i>SOURCE</i> file contains a long enough sequence of zero bytes. Use <b>--sparse=never</b> to inhibit creation of sparse files.</p>
+      <p class="tab">When <b>--reflink</b>[<b>=always</b>] is specified, <b>cp</b> performs a lightweight copy, where the data <a href="../jargon/b/block.htm">blocks</a> are copied only when modified. If this is not possible, the copy fails; or, if <b>--reflink=auto</b> is specified, <b>cp</b> falls back to a standard copy operation.</p>
+      <p class="tab">The backup suffix is '<b>~</b>', unless set with <b>--suffix</b> or <b>SIMPLE_BACKUP_SUFFIX</b>. The version control method may be selected via the <b>--backup=CONTROL</b> option or through the <b>VERSION_CONTROL</b> <a href="../jargon/e/envivari.htm">environment variable</a>. Here are the values of <b>CONTROL</b>/<b>VERSION_CONTROL</b>:</p>
+      <table class="mtable3 tab">
+        <tr class="tcw">
+          <td><b>none</b>, <b>off</b></td>
+          <td>never make backups (even if <b>--backup</b> is given).</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>numbered</b>, <b>t</b></td>
+          <td>make numbered backups.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>existing</b>, <b>nil</b></td>
+          <td><b>numbered</b> if numbered backups exist, <b>simple</b> otherwise.</td>
+        </tr>
+        <tr class="tcw">
+          <td><b>simple</b>, <b>never</b></td>
+          <td>always make simple backups.</td>
+        </tr>
+      </table>
+      <p class="tab"> As a special case, <b>cp</b> makes a backup of <i>SOURCE</i> when the <b>force</b> and <b>backup</b> options are given and <i>SOURCE</i> and <i>DEST</i> are the same name for an existing, regular file.</p>
+      <h2 id="examples">cp examples</h2>
+      <pre class="tcy tab">cp file1.txt newdir</pre>
+      <p class="tab">Copies the <b>file1.txt</b> in the working directory to the <b>newdir</b> subdirectory.</p>
+      <pre class="tcy tab">cp /home/public_html/mylog.txt /home/public_html/backup/mylog.bak</pre>
+      <p class="tab">Copies the file <b>mylog.txt</b> in the <b>public_html</b> directory into the <b>public_html/backup</b> directory as <b>mylog.bak</b>.</p>
+      <pre class="tcy tab">cp -u *.txt newdir</pre>
+      <p class="tab">Copy all files ending in <b>.txt</b> into the <b>newdir</b> directory, but only if the files do not already exist in the new directory, or if the files being copied are newer.</p>
+      <pre class="tcy tab">cp -R /home/hope/files/* /home/hope/backup</pre>
+      <p class="tab">Recursively copies all the files, directories, and subdirectories in the <b>/home/hope/files</b> directory into the <b>/home/hope/backup</b> directory. If the directory <b>backup</b> does not exist in the directory <b>/home/hope</b>, it will be created.</p>
+      <p class="tcy tab">cp --backup origfile newfile</p>
+      <p class="tab">If <b>newfile</b> already exists, make a backup of the existing <b>newfile</b> before overwriting it with a copy of <b>origfile</b>. By default, the backup of <b>newfile</b> will be named <b>newfile~</b>.</p>
+      <p class="tcy tab">cp --backup=numbered origfile newfile</p>
+      <p class="tab">If <b>newfile</b> already exists, make a backup of the existing <b>newfile</b> before overwriting it with a copy of <b>origfile</b>. The backup of <b>newfile</b> will be named <b>newfile.~1~</b> if no other backup exists, or <b>newfile.~2~</b> if <b>newfile.~1~</b> exists, etc.</p>
+      <h2 id="related">Related commands</h2>
+      <p class="tab"> <a href="dd.htm"><b>dd</b></a> &mdash; Copy and convert the encoding of files.<br>
+        <a href="uln.htm"><b>ln</b></a> &mdash; Create a link, or a symbolic link, to a file or directory.<br>
+        <a href="umv.htm"><b>mv</b></a> &mdash; Move files and directories from one location to another, and optionally rename them.</p>
+    </article>
+    <section class="bottomad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3999293766533555" data-ad-slot="6514780129" data-ad-format="auto"></ins> 
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <div class="related"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3999293766533555" data-ad-slot="9849691723" data-ad-format="autorelaxed"></ins> 
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </section>
+    <div id="meta_wrap" class="cf">
+      <ul class="options cf">
+        <li class="useful-page"> <span class="nolink">Was this page useful?</span> <a href="http://www.computerhope.com/cgi-bin/feedback.cgi?yes" rel="nofollow" class="first-child">Yes</a><a href="http://www.computerhope.com/cgi-bin/feedback.cgi?no" rel="nofollow">No</a> </li>
+        <li>
+          <ul>
+            <li class="feedback"><a href="http://www.computerhope.com/feedback/" rel="nofollow" title="Give us your feedback about this page">Feedback</a></li>
+            <li class="email"><a href="http://www.computerhope.com/email/" rel="nofollow" title="E-mail a friend about this page">E-mail</a></li>
+            <li class="share"><a href="http://www.computerhope.com/share/" rel="nofollow" title="Share this page with friends and social networks">Share</a></li>
+            <li class="first-child print"><a href="#" onclick="window.print();return false;" rel="nofollow" title="Print a copy of this page">Print</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <form action="http://www.computerhope.com/cgi-bin/search.cgi" method="post" class="cf">
+      <input class="sbar" name="q" title="Search" type="text"/>
+      <button type="Submit">Search</button>
+    </form>
+    <ul class="cf">
+      <li class="recent-pages">
+        <ol>
+          <li class="widget-title">
+            <h4>Recently added pages</h4>
+          </li>
+          <li id="ra1"></li>
+          <li id="ra2"></li>
+          <li id="ra3"></li>
+          <li id="ra4"></li>
+          <li id="ra5"></li>
+          <li><a href="http://www.computerhope.com/whatnew.htm">View all recent updates</a></li>
+        </ol>
+      </li>
+      <li class="useful-links">
+        <ol>
+          <li class="widget-title">
+            <h4>Useful links</h4>
+          </li>
+          <li><a href="http://www.computerhope.com/more.htm">About Computer Hope</a></li>
+          <li><a href="http://www.computerhope.com/sindex.htm">Site Map</a></li>
+          <li><a href="http://www.computerhope.com/forum/">Forum</a></li>
+          <li><a href="http://www.computerhope.com/contact/">Contact Us</a></li>
+          <li><a href="http://www.computerhope.com/issues/ch000586.htm">How to Help</a></li>
+          <li><a href="http://www.computerhope.com/chtop10.htm">Top 10 pages</a></li>
+        </ol>
+      </li>
+      <li class="social-networks">
+        <ol>
+          <li class="widget-title first-child">
+            <h4>Follow us</h4>
+          </li>
+          <li><a href="http://www.facebook.com/computerhope/" class="facebook">Facebook</a></li>
+          <li><a href="https://twitter.com/computerhope/" class="twitter">Twitter</a></li>
+          <li><a href="https://plus.google.com/+Computerhopehelp/" rel="publisher" class="google">Google+</a></li>
+          <li><a href="http://www.pinterest.com/computerhope/" class="pinterest">Pinterest</a></li>
+          <li><a href="http://www.youtube.com/user/Computerhope" class="youtube">YouTube</a></li>
+          <li><a href="http://www.computerhope.com/rss.htm" class="rss">RSS</a></li>
+        </ol>
+      </li>
+    </ul>
+    <div class="copyright"> <span>&copy; 2016 Computer Hope</span> <a href="http://www.computerhope.com/legal.htm">Legal Disclaimer</a> - <a href="http://www.computerhope.com/legal.htm#2">Privacy Statement</a> </div>
+  </footer>
+</div>
+<script async src="http://www.computerhope.com/recent.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="http://cdn.computerhope.com/site.js"></script> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=computerhope" async></script>
+</body>
+</html>
